@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rams-red: #cc0000;
+  --rams-gold: #ffd700;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #0f0f1a;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cc0000;
+}
+
+/* Prose overrides for dark mode */
+.prose-invert a {
+  color: #ffd700;
+}
+.prose-invert strong {
+  color: #fff;
+}
+.prose-invert h1,
+.prose-invert h2,
+.prose-invert h3 {
+  color: #fff;
+}
+.prose-invert blockquote {
+  border-left-color: #cc0000;
+  color: #aaa;
+}
+.prose-invert table {
+  font-size: 0.85rem;
+}
+.prose-invert th {
+  background-color: #cc0000;
+  color: white;
+}
+.prose-invert td {
+  border-color: #333;
+}
