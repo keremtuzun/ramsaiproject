@@ -161,16 +161,13 @@ export default function ChatInterface() {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full min-h-[400px] space-y-8">
             <div className="text-center space-y-3">
-              <div className="text-6xl font-bold text-rams-yellow drop-shadow-lg">
-                🤖
-              </div>
-              <h2 className="text-2xl font-bold text-white">
-                Welcome to RAMS AI
+              <h2 className="text-3xl font-black text-rams-yellow tracking-tight">
+                RAMS AI
               </h2>
-              <p className="text-gray-400 max-w-md">
-                Your FRC assistant for Team 7729. Ask me about{" "}
-                <span className="text-rams-yellow font-semibold">REBUILT</span>,
-                match data, robot programming, and strategy.
+              <p className="text-white/50 max-w-md text-sm">
+                FRC Team 7729 assistant — ask about{" "}
+                <span className="text-rams-yellow">REBUILT</span>, match data,
+                robot programming, and strategy.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl">
@@ -178,7 +175,7 @@ export default function ChatInterface() {
                 <button
                   key={prompt}
                   onClick={() => handleSubmit(undefined, prompt)}
-                  className="text-left p-3 rounded-lg border border-gray-800 bg-gray-900/60 hover:border-rams-yellow hover:bg-gray-900 transition-all text-sm text-gray-300 hover:text-white"
+                  className="text-left p-3 rounded-lg border border-[#222] bg-[#111] hover:border-rams-yellow hover:bg-[#1a1a1a] transition-all text-sm text-white/60 hover:text-white"
                 >
                   {prompt}
                 </button>
@@ -196,7 +193,7 @@ export default function ChatInterface() {
               className={`max-w-[85%] ${
                 msg.role === "user"
                   ? "bg-rams-yellow text-black font-medium rounded-2xl rounded-tr-sm px-4 py-3"
-                  : "bg-gray-900 text-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 border border-gray-800"
+                  : "bg-[#111] text-white rounded-2xl rounded-tl-sm px-4 py-3 border border-[#222]"
               }`}
             >
               {msg.role === "assistant" && msg.toolsUsed && msg.toolsUsed.length > 0 && (
@@ -204,9 +201,9 @@ export default function ChatInterface() {
                   {msg.toolsUsed.map((tool, ti) => (
                     <span
                       key={ti}
-                      className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-rams-yellow/10 text-rams-yellow border border-rams-yellow/30"
+                      className="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-rams-yellow/10 text-rams-yellow border border-rams-yellow/30"
                     >
-                      <span>⚡</span> {tool}
+                      {tool}
                     </span>
                   ))}
                 </div>
@@ -222,7 +219,7 @@ export default function ChatInterface() {
                         const isInline = !match;
                         return isInline ? (
                           <code
-                            className="bg-black rounded px-1 py-0.5 text-rams-yellow text-xs border border-gray-700"
+                            className="bg-black rounded px-1 py-0.5 text-rams-yellow text-xs border border-[#333]"
                             {...props}
                           >
                             {children}
@@ -253,7 +250,7 @@ export default function ChatInterface() {
 
         {loading && messages[messages.length - 1]?.role === "user" && (
           <div className="flex justify-start">
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl rounded-tl-sm px-4 py-3">
+            <div className="bg-[#111] border border-[#222] rounded-2xl rounded-tl-sm px-4 py-3">
               <TypingIndicator tools={activeTools} />
             </div>
           </div>
@@ -263,7 +260,7 @@ export default function ChatInterface() {
       </div>
 
       {/* Input */}
-      <div className="border-t border-gray-800 px-4 py-4 bg-rams-darker">
+      <div className="border-t border-[#222] px-4 py-4 bg-black">
         <form onSubmit={handleSubmit} className="flex gap-3 items-end">
           <textarea
             ref={textareaRef}
@@ -272,7 +269,7 @@ export default function ChatInterface() {
             onKeyDown={handleKeyDown}
             placeholder="Ask about REBUILT rules, match data, robot code..."
             rows={1}
-            className="flex-1 bg-gray-900 text-white placeholder-gray-600 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-rams-yellow border border-gray-800 focus:border-transparent min-h-[48px] max-h-[160px]"
+            className="flex-1 bg-[#111] text-white placeholder-white/30 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-rams-yellow border border-[#222] focus:border-transparent min-h-[48px] max-h-[160px]"
             style={{
               height: "auto",
               overflowY: input.split("\n").length > 4 ? "auto" : "hidden",
@@ -287,30 +284,28 @@ export default function ChatInterface() {
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="bg-rams-yellow hover:bg-yellow-400 disabled:opacity-40 disabled:cursor-not-allowed text-black font-bold rounded-xl px-4 py-3 transition-colors flex items-center gap-2 min-h-[48px]"
+            className="bg-rams-yellow hover:bg-yellow-400 disabled:opacity-40 disabled:cursor-not-allowed text-black font-bold rounded-xl px-5 py-3 transition-colors min-h-[48px]"
           >
-            {loading ? (
-              <span className="animate-spin text-lg">⟳</span>
-            ) : (
-              <span>Send</span>
-            )}
+            {loading ? <Spinner /> : "Send"}
           </button>
         </form>
-        <p className="text-xs text-gray-700 mt-2 text-center">
-          RAMS AI · FRC Team 7729 · 2026 REBUILT · Press Enter to send, Shift+Enter for new line
-        </p>
       </div>
     </div>
+  );
+}
+
+function Spinner() {
+  return (
+    <span className="inline-block w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
   );
 }
 
 function TypingIndicator({ tools }: { tools: string[] }) {
   if (tools.length > 0) {
     return (
-      <div className="flex items-center gap-2 text-sm text-rams-yellow">
-        <span className="animate-pulse">⚡</span>
-        <span>Fetching {tools[tools.length - 1]}...</span>
-      </div>
+      <p className="text-sm text-rams-yellow animate-pulse">
+        Fetching {tools[tools.length - 1]}...
+      </p>
     );
   }
   return (
