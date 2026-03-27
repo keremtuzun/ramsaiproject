@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --rams-red: #cc0000;
-  --rams-gold: #ffd700;
+  --rams-yellow: #ffd700;
 }
 
 html,
 body {
   height: 100%;
-  background-color: #0f0f1a;
+  background-color: #000000;
 }
 
 /* Scrollbar styling */
@@ -18,14 +17,14 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a2e;
+  background: #111111;
 }
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: #333;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #cc0000;
+  background: #ffd700;
 }
 
 /* Prose overrides for dark mode */
@@ -41,15 +40,15 @@ body {
   color: #fff;
 }
 .prose-invert blockquote {
-  border-left-color: #cc0000;
+  border-left-color: #ffd700;
   color: #aaa;
 }
 .prose-invert table {
   font-size: 0.85rem;
 }
 .prose-invert th {
-  background-color: #cc0000;
-  color: white;
+  background-color: #ffd700;
+  color: black;
 }
 .prose-invert td {
   border-color: #333;

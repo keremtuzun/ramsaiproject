@@ -9,10 +9,9 @@ module.exports = {
     extend: {
       colors: {
         rams: {
-          red: "#CC0000",
-          gold: "#FFD700",
-          dark: "#1a1a2e",
-          darker: "#0f0f1a",
+          yellow: "#FFD700",
+          dark: "#111111",
+          darker: "#000000",
         },
       },
       fontFamily: {

@@ -23,12 +23,12 @@ interface StreamEvent {
 }
 
 const SUGGESTED_PROMPTS = [
-  "What are the scoring rules for the 2025 FRC season (REEFSCAPE)?",
-  "Show me Team 7729's recent events and results",
-  "How do I write a basic autonomous routine in WPILib Java?",
-  "Explain PID tuning for a drivetrain",
-  "What's the best strategy for the Coral placement game piece?",
-  "Help me set up PathPlanner for autonomous paths",
+  "Explain the 2026 REBUILT game and how scoring works",
+  "Show me Team 7729's events and rankings this season",
+  "What's the best autonomous strategy for REBUILT?",
+  "How do I write a WPILib Java command for a shooter subsystem?",
+  "Help me tune a PID loop for my drivetrain",
+  "What are the alliance selection rules for REBUILT?",
 ];
 
 export default function ChatInterface() {
@@ -55,7 +55,6 @@ export default function ChatInterface() {
     setLoading(true);
     setActiveTools([]);
 
-    // Build API messages (exclude toolsUsed metadata)
     const apiMessages = newMessages.map(({ role, content }) => ({
       role,
       content,
@@ -77,7 +76,6 @@ export default function ChatInterface() {
       const decoder = new TextDecoder();
       let buffer = "";
 
-      // Add empty assistant message that we'll stream into
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "", toolsUsed: [] },
@@ -163,14 +161,15 @@ export default function ChatInterface() {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full min-h-[400px] space-y-8">
             <div className="text-center space-y-3">
-              <div className="text-6xl font-bold text-rams-red drop-shadow-lg">
+              <div className="text-6xl font-bold text-rams-yellow drop-shadow-lg">
                 🤖
               </div>
               <h2 className="text-2xl font-bold text-white">
                 Welcome to RAMS AI
               </h2>
               <p className="text-gray-400 max-w-md">
-                Your FRC assistant for Team 7729. Ask me about game rules,
+                Your FRC assistant for Team 7729. Ask me about{" "}
+                <span className="text-rams-yellow font-semibold">REBUILT</span>,
                 match data, robot programming, and strategy.
               </p>
             </div>
@@ -179,7 +178,7 @@ export default function ChatInterface() {
                 <button
                   key={prompt}
                   onClick={() => handleSubmit(undefined, prompt)}
-                  className="text-left p-3 rounded-lg border border-gray-700 bg-gray-800/50 hover:border-rams-red hover:bg-gray-800 transition-all text-sm text-gray-300 hover:text-white"
+                  className="text-left p-3 rounded-lg border border-gray-800 bg-gray-900/60 hover:border-rams-yellow hover:bg-gray-900 transition-all text-sm text-gray-300 hover:text-white"
                 >
                   {prompt}
                 </button>
@@ -196,8 +195,8 @@ export default function ChatInterface() {
             <div
               className={`max-w-[85%] ${
                 msg.role === "user"
-                  ? "bg-rams-red text-white rounded-2xl rounded-tr-sm px-4 py-3"
-                  : "bg-gray-800 text-gray-100 rounded-2xl rounded-tl-sm px-4 py-3"
+                  ? "bg-rams-yellow text-black font-medium rounded-2xl rounded-tr-sm px-4 py-3"
+                  : "bg-gray-900 text-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 border border-gray-800"
               }`}
             >
               {msg.role === "assistant" && msg.toolsUsed && msg.toolsUsed.length > 0 && (
@@ -205,7 +204,7 @@ export default function ChatInterface() {
                   {msg.toolsUsed.map((tool, ti) => (
                     <span
                       key={ti}
-                      className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-rams-gold/20 text-rams-gold border border-rams-gold/30"
+                      className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-rams-yellow/10 text-rams-yellow border border-rams-yellow/30"
                     >
                       <span>⚡</span> {tool}
                     </span>
@@ -223,7 +222,7 @@ export default function ChatInterface() {
                         const isInline = !match;
                         return isInline ? (
                           <code
-                            className="bg-gray-700 rounded px-1 py-0.5 text-rams-gold text-xs"
+                            className="bg-black rounded px-1 py-0.5 text-rams-yellow text-xs border border-gray-700"
                             {...props}
                           >
                             {children}
@@ -254,7 +253,7 @@ export default function ChatInterface() {
 
         {loading && messages[messages.length - 1]?.role === "user" && (
           <div className="flex justify-start">
-            <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3">
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl rounded-tl-sm px-4 py-3">
               <TypingIndicator tools={activeTools} />
             </div>
           </div>
@@ -264,16 +263,16 @@ export default function ChatInterface() {
       </div>
 
       {/* Input */}
-      <div className="border-t border-gray-700 px-4 py-4 bg-rams-darker">
+      <div className="border-t border-gray-800 px-4 py-4 bg-rams-darker">
         <form onSubmit={handleSubmit} className="flex gap-3 items-end">
           <textarea
             ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask about FRC rules, match data, robot code..."
+            placeholder="Ask about REBUILT rules, match data, robot code..."
             rows={1}
-            className="flex-1 bg-gray-800 text-white placeholder-gray-500 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-rams-red border border-gray-700 focus:border-transparent min-h-[48px] max-h-[160px]"
+            className="flex-1 bg-gray-900 text-white placeholder-gray-600 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-rams-yellow border border-gray-800 focus:border-transparent min-h-[48px] max-h-[160px]"
             style={{
               height: "auto",
               overflowY: input.split("\n").length > 4 ? "auto" : "hidden",
@@ -288,7 +287,7 @@ export default function ChatInterface() {
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="bg-rams-red hover:bg-red-700 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl px-4 py-3 font-semibold transition-colors flex items-center gap-2 min-h-[48px]"
+            className="bg-rams-yellow hover:bg-yellow-400 disabled:opacity-40 disabled:cursor-not-allowed text-black font-bold rounded-xl px-4 py-3 transition-colors flex items-center gap-2 min-h-[48px]"
           >
             {loading ? (
               <span className="animate-spin text-lg">⟳</span>
@@ -297,8 +296,8 @@ export default function ChatInterface() {
             )}
           </button>
         </form>
-        <p className="text-xs text-gray-600 mt-2 text-center">
-          RAMS AI · FRC Team 7729 · Press Enter to send, Shift+Enter for new line
+        <p className="text-xs text-gray-700 mt-2 text-center">
+          RAMS AI · FRC Team 7729 · 2026 REBUILT · Press Enter to send, Shift+Enter for new line
         </p>
       </div>
     </div>
@@ -308,7 +307,7 @@ export default function ChatInterface() {
 function TypingIndicator({ tools }: { tools: string[] }) {
   if (tools.length > 0) {
     return (
-      <div className="flex items-center gap-2 text-sm text-rams-gold">
+      <div className="flex items-center gap-2 text-sm text-rams-yellow">
         <span className="animate-pulse">⚡</span>
         <span>Fetching {tools[tools.length - 1]}...</span>
       </div>
@@ -316,9 +315,9 @@ function TypingIndicator({ tools }: { tools: string[] }) {
   }
   return (
     <div className="flex items-center gap-1.5">
-      <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]" />
-      <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]" />
-      <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
+      <span className="w-2 h-2 bg-rams-yellow rounded-full animate-bounce [animation-delay:-0.3s]" />
+      <span className="w-2 h-2 bg-rams-yellow rounded-full animate-bounce [animation-delay:-0.15s]" />
+      <span className="w-2 h-2 bg-rams-yellow rounded-full animate-bounce" />
     </div>
   );
 }
