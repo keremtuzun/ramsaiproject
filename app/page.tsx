@@ -6,8 +6,8 @@ export default function Home() {
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-3 bg-[#111] border-b border-[#222] shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-rams-yellow flex items-center justify-center text-sm font-black text-black">
-            7729
+          <div className="w-10 h-10 rounded-lg overflow-hidden">
+            <img src="/logo.svg" alt="RAMS logo" className="w-full h-full object-cover" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-white leading-none">
