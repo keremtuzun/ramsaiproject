@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rams-yellow: #ffd700;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #000000;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
+}
+
+/* Prose overrides for dark mode */
+.prose-invert a {
+  color: #ffd700;
+}
+.prose-invert strong {
+  color: #fff;
+}
+.prose-invert h1,
+.prose-invert h2,
+.prose-invert h3 {
+  color: #fff;
+}
+.prose-invert blockquote {
+  border-left-color: #ffd700;
+  color: #aaa;
+}
+.prose-invert table {
+  font-size: 0.85rem;
+}
+.prose-invert th {
+  background-color: #ffd700;
+  color: black;
+}
+.prose-invert td {
+  border-color: #333;
+}
