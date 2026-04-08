@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "AI assistant for FRC Team 7729 — rules, scouting, strategy, and robot programming help.",
   icons: {
-    icon: "logo.jpg",
+    icon: "/logo.jpg",
   },
 };
 
