@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MUNDP 2027 — Sponsorship Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     MUNDP 2027 · Sponsorship Package
+     Redesign brief: more vivid palette, more creative, more
+     professional. Print-ready A4. Open in a browser and use
+     "Print → Save as PDF" (A4, margins: None, Background graphics: ON).
+     ============================================================ */
+
+  :root {
+    /* Core ink */
+    --ink:        #060823;
+    --ink-2:      #0B0F3A;
+    --indigo:     #161C66;
+    --indigo-2:   #232A85;
+
+    /* Vivid accents (this is the "less muted" lift) */
+    --azure:      #2E7BFF;
+    --sky:        #4FA3FF;
+    --cyan:       #22D3EE;
+    --violet:     #7C5CFF;
+    --magenta:    #C24BFF;
+
+    /* Premium warm accent for contrast */
+    --gold:       #F5B544;
+    --gold-2:     #FFD479;
+
+    --paper:      #FFFFFF;
+    --mist:       #EEF2FF;
+    --slate:      #5A6486;
+    --line:       rgba(255,255,255,.14);
+
+    --grad-hero:  linear-gradient(135deg, #22D3EE 0%, #2E7BFF 42%, #7C5CFF 100%);
+    --grad-gold:  linear-gradient(135deg, #FFD479 0%, #F5B544 100%);
+    --grad-ink:   radial-gradient(120% 120% at 80% -10%, #232A85 0%, #0B0F3A 48%, #060823 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0B0F3A;
+    background: #2a2f4a;
+  }
+
+  /* ---------- Page scaffold ---------- */
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--paper);
+    page-break-after: always;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .pad { position: relative; z-index: 5; padding: 22mm 18mm; height: 100%; }
+
+  /* ---------- Reusable atoms ---------- */
+  .eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: .98;
+    letter-spacing: -.01em;
+  }
+  .gradient-text {
+    background: var(--grad-hero);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .gold-text {
+    background: var(--grad-gold);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    padding: 7px 14px; border-radius: 999px;
+  }
+  .rule {
+    width: 54px; height: 4px; border-radius: 4px;
+    background: var(--grad-hero);
+  }
+
+  /* Decorative mesh blob */
+  .blob { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .9; z-index: 1; }
+
+  /* ============================================================
+     PAGE 1 — COVER
+     ============================================================ */
+  .cover { background: var(--grad-ink); color: #fff; }
+
+  .cover .mesh1 { width: 540px; height: 540px; left: -180px; top: -160px;
+    background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.55), transparent 60%); }
+  .cover .mesh2 { width: 620px; height: 620px; right: -220px; top: 120px;
+    background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.40), transparent 62%); }
+  .cover .mesh3 { width: 440px; height: 440px; left: 20%; bottom: -200px;
+    background: radial-gradient(circle at 50% 50%, rgba(46,123,255,.45), transparent 60%); }
+
+  /* layered "wave" band evoking the original, but bolder */
+  .cover .band {
+    position: absolute; left: 0; right: 0; z-index: 2;
+    height: 300px; opacity: .9;
+  }
+  .cover .band svg { width: 100%; height: 100%; display: block; }
+
+  .cover-top {
+    position: relative; z-index: 6;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .cover-title { margin-top: 4mm; }
+  .cover-title .k1 { font-size: 76px; }
+  .cover-title .k2 { font-size: 62px; font-weight: 400; opacity: .92; margin-top: -6px; }
+
+  .logo-stack { text-align: right; }
+  .logo-badge {
+    width: 86px; height: 86px; margin-left: auto;
+    display: grid; place-items: center; border-radius: 22px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  .logo-badge svg { width: 50px; height: 50px; }
+  .logo-stack .lbl { margin-top: 10px; font-family:'Space Grotesk'; font-weight:600; font-size: 13px; letter-spacing:.06em; }
+  .logo-stack .sub { font-size: 9.5px; letter-spacing:.34em; opacity:.6; margin-top:3px; text-transform:uppercase; }
+
+  /* central visual: framed committee-photo slot */
+  .cover-visual {
+    position: relative; z-index: 6;
+    margin: 26px 0 0;
+    height: 300px;
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.16);
+    background:
+      linear-gradient(180deg, rgba(6,8,35,0) 30%, rgba(6,8,35,.55) 100%),
+      var(--grad-hero);
+    box-shadow: 0 30px 70px rgba(0,0,0,.45);
+  }
+  .cover-visual .photo-note {
+    position: absolute; inset: 0; display: grid; place-items: center; text-align:center;
+    color: rgba(255,255,255,.92);
+  }
+  .cover-visual .photo-note .ic { font-size: 30px; }
+  .cover-visual .photo-note p { font-family:'Space Grotesk'; font-weight:600; letter-spacing:.05em; margin-top:8px; font-size:14px; }
+  .cover-visual .photo-note span { font-size:11px; opacity:.8; }
+  /* placard motif */
+  .placards { position:absolute; left:0; right:0; bottom:18px; display:flex; gap:10px; justify-content:center; z-index:3; }
+  .placard {
+    font-family:'Space Grotesk'; font-weight:600; font-size:10px; letter-spacing:.04em;
+    color:#0B0F3A; background:#fff; padding:6px 12px; border-radius:6px;
+    box-shadow:0 8px 18px rgba(0,0,0,.35); transform: rotate(-3deg);
+  }
+  .placard:nth-child(2){ transform:rotate(2deg); } .placard:nth-child(3){ transform:rotate(-1deg); }
+  .placard:nth-child(4){ transform:rotate(4deg); } .placard:nth-child(5){ transform:rotate(-4deg); }
+
+  .cover-foot { position: absolute; left: 18mm; right: auto; max-width: 116mm; bottom: 20mm; z-index: 6; }
+  .cover-foot .lead { font-size: 17px; color: rgba(255,255,255,.72); font-weight: 300; }
+  .cover-foot .lead strong { color:#fff; font-weight:700; }
+  .cover-foot .meta {
+    display:flex; align-items:center; gap:14px; margin-top: 16px;
+  }
+  .cover-foot .meta .rule { width: 64px; }
+  .cover-foot .meta em { font-style: italic; color: rgba(255,255,255,.6); font-size: 14px; }
+
+  .event-lockup { position:absolute; right:18mm; bottom:20mm; z-index:6; text-align:right; }
+  .event-lockup .name { font-family:'Space Grotesk'; font-weight:700; font-size:30px; letter-spacing:.02em; }
+  .event-lockup .tag { font-size:10px; letter-spacing:.34em; text-transform:uppercase; opacity:.6; margin-top:2px; }
+
+  /* ============================================================
+     SHARED INNER PAGE CHROME
+     ============================================================ */
+  .inner { background: #fff; color: #0B0F3A; }
+  .inner .corner {
+    position:absolute; right:0; top:0; width:240px; height:240px; z-index:1;
+    background: var(--grad-hero); opacity:.10;
+    border-bottom-left-radius: 100%;
+  }
+  .inner .ribbon {
+    position:absolute; left:0; top:0; bottom:0; width:8px; z-index:2;
+    background: var(--grad-hero);
+  }
+  .page-head { display:flex; align-items:baseline; justify-content:space-between; }
+  .page-head .eyebrow { color: var(--azure); }
+  .page-head .num {
+    font-family:'Space Grotesk'; font-weight:700; font-size:13px; color: var(--slate);
+  }
+  .h-big { font-family:'Space Grotesk'; font-weight:700; font-size:40px; line-height:1.02; letter-spacing:-.015em; margin-top:14px; }
+  .lede { font-size:14.5px; line-height:1.65; color:#3A4266; margin-top:14px; max-width: 150mm; }
+
+  .pg-footer {
+    position:absolute; left:18mm; right:18mm; bottom:12mm; z-index:6;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase; color: var(--slate);
+    border-top:1px solid #E7EBF7; padding-top:10px;
+  }
+  .pg-footer .gold-text { letter-spacing:.18em; }
+
+  /* ---------- Page 2: welcome ---------- */
+  .welcome-grid { display:grid; grid-template-columns: 1fr; gap: 26px; margin-top: 30px; }
+  .quote-card {
+    position:relative; border-radius: 22px; padding: 30px 32px; color:#fff;
+    background: var(--grad-ink); overflow:hidden;
+    box-shadow: 0 24px 50px rgba(11,15,58,.28);
+  }
+  .quote-card .qmesh { width:360px; height:360px; right:-120px; bottom:-160px;
+    background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.45), transparent 60%); }
+  .quote-card .qmark { font-family:'Space Grotesk'; font-size:64px; line-height:.6; color: var(--gold-2); }
+  .quote-card p { position:relative; z-index:3; font-size:16.5px; line-height:1.6; font-weight:300; margin-top:10px; }
+  .quote-card p strong { font-weight:700; }
+  .quote-card .sign { position:relative; z-index:3; margin-top:22px; display:flex; align-items:center; gap:12px; }
+  .quote-card .sign .av { width:42px; height:42px; border-radius:50%; background: var(--grad-gold); display:grid; place-items:center; color:#1A1300; font-family:'Space Grotesk'; font-weight:700; }
+  .quote-card .sign .who b { display:block; font-size:14px; }
+  .quote-card .sign .who span { font-size:11px; opacity:.7; }
+
+  .feature-row { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top: 4px; }
+  .feature {
+    border:1px solid #E7EBF7; border-radius:18px; padding:20px 18px;
+    background: linear-gradient(180deg,#fff, #F7F9FF);
+  }
+  .feature .ic { width:46px; height:46px; border-radius:13px; display:grid; place-items:center; background: var(--grad-hero); color:#fff; }
+  .feature .ic svg { width:24px; height:24px; }
+  .feature h4 { font-family:'Space Grotesk'; font-size:16px; margin-top:14px; }
+  .feature p { font-size:12.5px; line-height:1.55; color:#5A6486; margin-top:6px; }
+
+  /* ---------- Page 3: by the numbers ---------- */
+  .stat-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:18px; margin-top: 30px; }
+  .stat {
+    position:relative; border-radius:20px; padding:26px 24px; overflow:hidden;
+    color:#fff; box-shadow:0 18px 40px rgba(11,15,58,.18);
+  }
+  .stat.a { background: linear-gradient(135deg,#2E7BFF,#7C5CFF); }
+  .stat.b { background: linear-gradient(135deg,#22D3EE,#2E7BFF); }
+  .stat.c { background: linear-gradient(135deg,#7C5CFF,#C24BFF); }
+  .stat.d { background: linear-gradient(135deg,#0B0F3A,#232A85); }
+  .stat .big { font-family:'Space Grotesk'; font-weight:700; font-size:54px; line-height:1; }
+  .stat .lbl { font-size:13px; margin-top:8px; opacity:.92; font-weight:500; }
+  .stat .dot { position:absolute; right:-30px; top:-30px; width:120px; height:120px; border-radius:50%; background:rgba(255,255,255,.12); }
+
+  .reach { margin-top:24px; border-radius:20px; border:1px solid #E7EBF7; padding:24px; background:#F7F9FF; }
+  .reach h4 { font-family:'Space Grotesk'; font-size:15px; color:var(--indigo); }
+  .bars { margin-top:16px; display:flex; flex-direction:column; gap:12px; }
+  .bar-row { display:grid; grid-template-columns: 130px 1fr 44px; align-items:center; gap:12px; font-size:12px; }
+  .bar-track { height:12px; border-radius:8px; background:#E3E9FA; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:8px; background: var(--grad-hero); }
+  .bar-row b { font-family:'Space Grotesk'; text-align:right; color:var(--indigo); }
+
+  /* ---------- Page 4: tiers ---------- */
+  .tiers { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-top:28px; }
+  .tier {
+    position:relative; border-radius:20px; padding:24px 22px; overflow:hidden;
+    border:1px solid #E7EBF7; background:#fff;
+  }
+  .tier .crown { font-family:'Space Grotesk'; font-weight:700; letter-spacing:.16em; text-transform:uppercase; font-size:12px; }
+  .tier .price { font-family:'Space Grotesk'; font-weight:700; font-size:34px; margin-top:8px; }
+  .tier .price small { font-size:13px; font-weight:500; color:var(--slate); }
+  .tier ul { list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:9px; }
+  .tier li { font-size:12.5px; color:#3A4266; display:flex; gap:9px; align-items:flex-start; line-height:1.4; }
+  .tier li svg { width:15px; height:15px; flex-shrink:0; margin-top:1px; }
+  .tier.bronze .crown { color:#B06B2E; }  .tier.bronze li svg { color:#B06B2E; }
+  .tier.silver .crown { color:#6B7390; }  .tier.silver li svg { color:#6B7390; }
+  .tier.gold   { border:1.5px solid var(--gold); background: linear-gradient(180deg,#FFFDF6,#FFF7E6); }
+  .tier.gold .crown { color:#C8881A; } .tier.gold li svg { color:#C8881A; }
+  .tier.plat   { color:#fff; background: var(--grad-ink); border:none; }
+  .tier.plat .crown { color: var(--cyan); } .tier.plat .price small{ color:rgba(255,255,255,.6);}
+  .tier.plat li { color: rgba(255,255,255,.86); } .tier.plat li svg { color: var(--cyan); }
+  .tier .flag {
+    position:absolute; right:0; top:18px; font-family:'Space Grotesk'; font-weight:700; font-size:10px;
+    letter-spacing:.14em; text-transform:uppercase; color:#1A1300; background:var(--grad-gold);
+    padding:6px 14px 6px 16px; border-radius:999px 0 0 999px;
+  }
+
+  /* ---------- Page 5: matrix ---------- */
+  .matrix { width:100%; border-collapse:separate; border-spacing:0; margin-top:26px; font-size:12px; }
+  .matrix thead th {
+    font-family:'Space Grotesk'; font-weight:700; padding:14px 10px; text-align:center;
+    color:#fff; font-size:12px;
+  }
+  .matrix thead th:first-child { text-align:left; background:transparent; color:var(--indigo); }
+  .matrix thead th.t-bronze { background:#B06B2E; border-radius:12px 12px 0 0; }
+  .matrix thead th.t-silver { background:#6B7390; border-radius:12px 12px 0 0; }
+  .matrix thead th.t-gold   { background:#C8881A; border-radius:12px 12px 0 0; }
+  .matrix thead th.t-plat   { background: var(--indigo); border-radius:12px 12px 0 0; }
+  .matrix tbody td { padding:11px 10px; text-align:center; border-bottom:1px solid #EDF1FB; }
+  .matrix tbody td:first-child { text-align:left; font-weight:600; color:#2A3257; }
+  .matrix tbody tr:nth-child(even) td { background:#F8FAFF; }
+  .matrix .yes { color:#1FA463; font-weight:700; }
+  .matrix .no  { color:#C9D0E4; }
+  .matrix .amt { font-family:'Space Grotesk'; font-weight:700; color:var(--indigo); }
+
+  /* ---------- Page 6: contact / CTA ---------- */
+  .cta { background: var(--grad-ink); color:#fff; }
+  .cta .mesh1 { width:520px; height:520px; right:-180px; top:-160px; background: radial-gradient(circle at 50% 50%, rgba(124,92,255,.5), transparent 60%); }
+  .cta .mesh2 { width:480px; height:480px; left:-160px; bottom:-160px; background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.4), transparent 60%); }
+  .cta .eyebrow { color: var(--cyan); }
+  .cta h2 { font-family:'Space Grotesk'; font-weight:700; font-size:46px; line-height:1.02; margin-top:14px; letter-spacing:-.02em; }
+  .cta .lede2 { color:rgba(255,255,255,.74); font-size:15px; line-height:1.65; margin-top:16px; max-width:150mm; font-weight:300; }
+  .contact-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:34px; }
+  .contact-card {
+    border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:20px 18px;
+    background: rgba(255,255,255,.05);
+  }
+  .contact-card .ic { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background: var(--grad-hero); }
+  .contact-card .ic svg { width:22px; height:22px; }
+  .contact-card .k { font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:14px; }
+  .contact-card .v { font-family:'Space Grotesk'; font-weight:600; font-size:14px; margin-top:5px; word-break:break-word; }
+
+  .cta-strip {
+    margin-top:34px; border-radius:20px; padding:26px 28px;
+    background: var(--grad-gold); color:#1A1300;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .cta-strip h3 { font-family:'Space Grotesk'; font-weight:700; font-size:22px; }
+  .cta-strip p { font-size:12.5px; margin-top:4px; font-weight:500; }
+  .cta-strip .btn {
+    font-family:'Space Grotesk'; font-weight:700; font-size:14px; letter-spacing:.04em;
+    background:#0B0F3A; color:#fff; padding:14px 24px; border-radius:12px; white-space:nowrap;
+  }
+  .cta-foot {
+    position:absolute; left:18mm; right:18mm; bottom:16mm; z-index:6;
+    display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid rgba(255,255,255,.14); padding-top:14px;
+  }
+  .cta-foot .name { font-family:'Space Grotesk'; font-weight:700; font-size:20px; }
+  .cta-foot .name span { color:var(--cyan); }
+  .cta-foot .tag { font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+
+  @media print {
+    body { background:#fff; }
+    .page { box-shadow:none; margin:0; }
+  }
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================== PAGE 1 — COVER ============================== -->
+<section class="page cover">
+  <div class="blob mesh1"></div>
+  <div class="blob mesh2"></div>
+  <div class="blob mesh3"></div>
+
+  <div class="band" style="top:340px">
+    <svg viewBox="0 0 800 300" preserveAspectRatio="none">
+      <path d="M0,120 C180,40 320,200 520,120 C680,56 740,160 800,120 L800,300 L0,300 Z" fill="url(#wg)"/>
+      <defs>
+        <linearGradient id="wg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#22D3EE" stop-opacity=".22"/>
+          <stop offset=".5" stop-color="#2E7BFF" stop-opacity=".16"/>
+          <stop offset="1" stop-color="#7C5CFF" stop-opacity=".22"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="pad" style="padding-bottom:0;">
+    <div class="cover-top">
+      <div>
+        <div class="chip" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--gold-2)">
+          Commitment to Development · 2026–2027
+        </div>
+        <div class="cover-title">
+          <div class="display k1">Sponsorship</div>
+          <div class="display k2 gradient-text" style="font-family:'Space Grotesk'">Package</div>
+        </div>
+      </div>
+
+      <div class="logo-stack">
+        <div class="logo-badge">
+          <!-- globe monogram (placeholder for THIMUN mark) -->
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="20" stroke="#fff" stroke-width="2"/>
+            <ellipse cx="24" cy="24" rx="8" ry="20" stroke="#4FA3FF" stroke-width="2"/>
+            <path d="M5 18 H43 M5 30 H43" stroke="#22D3EE" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lbl">THIMUN&nbsp;Foundation</div>
+        <div class="sub">Affiliated with THIMUN</div>
+      </div>
+    </div>
+
+    <!-- Hero visual slot: drop the committee photo in as background -->
+    <div class="cover-visual">
+      <div class="photo-note">
+        <div>
+          <div class="ic">🖼️</div>
+          <p>Committee floor photo</p>
+          <span>Replace this panel's background with your hi-res conference image</span>
+        </div>
+      </div>
+      <div class="placards">
+        <span class="placard">Kazakhstan</span>
+        <span class="placard">Philippines</span>
+        <span class="placard">Thailand</span>
+        <span class="placard">New Zealand</span>
+        <span class="placard">Russian Federation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-foot">
+    <div class="lead">Partner with the region's leading<br><strong>Model United Nations conference</strong></div>
+    <div class="meta">
+      <div class="rule"></div>
+      <em>Three days · 600+ delegates · 40+ delegations</em>
+    </div>
+  </div>
+
+  <div class="event-lockup">
+    <div class="name">MUNDP <span class="gold-text">2027</span></div>
+    <div class="tag">Commitment to Development</div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 2 — WELCOME ============================== -->
+<section class="page inner">
+  <div class="ribbon"></div>
+  <div class="corner"></div>
+  <div class="pad">
+    <div class="page-head">
+      <div class="eyebrow">Welcome</div>
+      <div class="num">01 — Invitation</div>
+    </div>
+    <h1 class="h-big">A platform where<br>tomorrow's leaders<br><span class="gradient-text">find their voice.</span></h1>
+    <p class="lede">For three days each year, MUNDP transforms a conference hall into a living model of the United Nations — where hundreds of students debate the world's most pressing challenges, negotiate real resolutions, and discover what global citizenship feels like. Sponsoring MUNDP places your organisation at the centre of that experience.</p>
+
+    <div class="welcome-grid">
+      <div class="quote-card">
+        <div class="blob qmesh"></div>
+        <div class="qmark">"</div>
+        <p>When you sponsor MUNDP, you are not buying a logo on a banner. You are investing in the diplomats, advocates, and changemakers who will shape the next decade — <strong>and putting your brand in the room with them.</strong></p>
+        <div class="sign">
+          <div class="av">DSG</div>
+          <div class="who"><b>The Secretariat</b><span>MUNDP 2027 · Deputy Secretary-General</span></div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <h4>Global Reach</h4>
+          <p>Delegates and schools from across the region under one roof, affiliated with THIMUN.</p>
+        </div>
+        <div class="feature">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+          <h4>Engaged Audience</h4>
+          <p>Ambitious 14–18 year-olds, their families, and partner schools — a high-intent community.</p>
+        </div>
+        <div class="feature">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
+          <h4>Lasting Impact</h4>
+          <p>Your support funds scholarships, venues, and delegates who could not otherwise attend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-footer"><span>MUNDP 2027 · Sponsorship Package</span><span class="gold-text">Commitment to Development</span></div>
+</section>
+
+<!-- ============================== PAGE 3 — BY THE NUMBERS ============================== -->
+<section class="page inner">
+  <div class="ribbon"></div>
+  <div class="corner"></div>
+  <div class="pad">
+    <div class="page-head">
+      <div class="eyebrow">Why Partner</div>
+      <div class="num">02 — By the Numbers</div>
+    </div>
+    <h1 class="h-big">The reach behind<br>every resolution.</h1>
+
+    <div class="stat-grid">
+      <div class="stat a"><div class="dot"></div><div class="big">600+</div><div class="lbl">Delegates across three conference days</div></div>
+      <div class="stat b"><div class="dot"></div><div class="big">40+</div><div class="lbl">Partner schools &amp; delegations represented</div></div>
+      <div class="stat c"><div class="dot"></div><div class="big">15K+</div><div class="lbl">Social &amp; livestream impressions per edition</div></div>
+      <div class="stat d"><div class="dot"></div><div class="big">3</div><div class="lbl">Days of debate, ceremony &amp; brand visibility</div></div>
+    </div>
+
+    <div class="reach">
+      <h4>Where your brand shows up</h4>
+      <div class="bars">
+        <div class="bar-row"><span>Opening &amp; closing ceremonies</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><b>95%</b></div>
+        <div class="bar-row"><span>Printed delegate materials</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><b>88%</b></div>
+        <div class="bar-row"><span>Digital &amp; social channels</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><b>80%</b></div>
+        <div class="bar-row"><span>Venue signage &amp; backdrops</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><b>72%</b></div>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px">Figures are representative of recent editions; final reach is confirmed in your sponsorship agreement. We tailor placement to your goals — from a single ceremony moment to a season-long partnership.</p>
+  </div>
+  <div class="pg-footer"><span>MUNDP 2027 · Sponsorship Package</span><span class="gold-text">Commitment to Development</span></div>
+</section>
+
+<!-- ============================== PAGE 4 — TIERS ============================== -->
+<section class="page inner">
+  <div class="ribbon"></div>
+  <div class="corner"></div>
+  <div class="pad">
+    <div class="page-head">
+      <div class="eyebrow">Sponsorship Tiers</div>
+      <div class="num">03 — Choose Your Level</div>
+    </div>
+    <h1 class="h-big">Four ways to<br>stand with us.</h1>
+
+    <div class="tiers">
+      <div class="tier bronze">
+        <div class="crown">Bronze · Friend</div>
+        <div class="price">$250<small> / edition</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Logo on delegate booklet</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Social media thank-you post</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Certificate of partnership</li>
+        </ul>
+      </div>
+
+      <div class="tier silver">
+        <div class="crown">Silver · Supporter</div>
+        <div class="price">$500<small> / edition</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Everything in Bronze</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Logo on venue signage</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Half-page advert in programme</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verbal acknowledgement at ceremony</li>
+        </ul>
+      </div>
+
+      <div class="tier gold">
+        <div class="flag">Most popular</div>
+        <div class="crown">Gold · Partner</div>
+        <div class="price">$1,000<small> / edition</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Everything in Silver</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Full-page advert &amp; ceremony slide</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Logo on delegate lanyards</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Exhibition table at the venue</li>
+        </ul>
+      </div>
+
+      <div class="tier plat">
+        <div class="crown">Platinum · Headline</div>
+        <div class="price">$2,500<small> / edition</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Everything in Gold</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Named title sponsor &amp; backdrop</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Keynote / award-presentation moment</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Year-round digital partnership</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px;font-size:12.5px">Prices are placeholders for the Secretariat to confirm. Bespoke and in-kind partnerships (catering, printing, technology) are warmly welcomed — let's design the right fit together.</p>
+  </div>
+  <div class="pg-footer"><span>MUNDP 2027 · Sponsorship Package</span><span class="gold-text">Commitment to Development</span></div>
+</section>
+
+<!-- ============================== PAGE 5 — MATRIX ============================== -->
+<section class="page inner">
+  <div class="ribbon"></div>
+  <div class="corner"></div>
+  <div class="pad">
+    <div class="page-head">
+      <div class="eyebrow">Benefits at a Glance</div>
+      <div class="num">04 — Comparison</div>
+    </div>
+    <h1 class="h-big">Every benefit,<br>side by side.</h1>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th class="t-bronze">Bronze</th>
+          <th class="t-silver">Silver</th>
+          <th class="t-gold">Gold</th>
+          <th class="t-plat">Platinum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Logo in delegate booklet</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Social media recognition</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Venue signage placement</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Programme advertisement</td><td class="no">—</td><td>½ page</td><td>Full</td><td>Full</td></tr>
+        <tr><td>Ceremony acknowledgement</td><td class="no">—</td><td>Verbal</td><td>+ Slide</td><td>Keynote</td></tr>
+        <tr><td>Logo on lanyards</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Exhibition table</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Named title sponsor</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Award-presentation moment</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Year-round partnership</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td style="font-weight:700">Contribution</td><td class="amt">$250</td><td class="amt">$500</td><td class="amt">$1,000</td><td class="amt">$2,500</td></tr>
+      </tbody>
+    </table>
+
+    <div class="reach" style="margin-top:24px;display:flex;gap:20px;align-items:center">
+      <div style="width:54px;height:54px;border-radius:14px;background:var(--grad-gold);display:grid;place-items:center;flex-shrink:0">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#1A1300" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+      </div>
+      <div>
+        <h4 style="margin-bottom:4px">Want something different?</h4>
+        <p style="font-size:12.5px;color:#5A6486;line-height:1.5">In-kind and custom partnerships are tailored one-to-one with the Secretariat. If your goals don't fit a tier, we'll build a package that does.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pg-footer"><span>MUNDP 2027 · Sponsorship Package</span><span class="gold-text">Commitment to Development</span></div>
+</section>
+
+<!-- ============================== PAGE 6 — CTA / CONTACT ============================== -->
+<section class="page cta">
+  <div class="blob mesh1"></div>
+  <div class="blob mesh2"></div>
+  <div class="pad">
+    <div class="eyebrow">Let's Build It Together</div>
+    <h2>Put your name<br>in the room where<br><span class="gold-text">the future is debated.</span></h2>
+    <p class="lede2">Joining MUNDP 2027 takes one conversation. Tell us what you'd like to achieve and we'll return a tailored proposal within a few days — including placement mock-ups and an agreement ready to sign.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <div class="k">Email</div>
+        <div class="v">sponsorship@mundp.org</div>
+      </div>
+      <div class="contact-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <div class="k">Phone</div>
+        <div class="v">+00 000 000 0000</div>
+      </div>
+      <div class="contact-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <div class="k">Online</div>
+        <div class="v">www.mundp.org</div>
+      </div>
+    </div>
+
+    <div class="cta-strip">
+      <div>
+        <h3>Ready to partner?</h3>
+        <p>Reserve your tier for the 2027 edition before allocations close.</p>
+      </div>
+      <div class="btn">Become a Sponsor →</div>
+    </div>
+  </div>
+
+  <div class="cta-foot">
+    <div class="name">MUNDP <span>2027</span></div>
+    <div class="tag">Affiliated with THIMUN · Commitment to Development</div>
+  </div>
+</section>
+
+</body>
+</html>
